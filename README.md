@@ -10,3 +10,4 @@ Once you've gained access to the repository, add your name here:
 - Kyle
 - Shreyas
 - Guy
+- gisele
