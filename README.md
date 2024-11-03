@@ -6,6 +6,6 @@ Once you've gained access to the repository, add your name here:
 - Tariq
 - Sergio
 - Muiz 
-- Vrushtee
+- Vrushtee 1
 - Kyle
 - Shreyas
