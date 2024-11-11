@@ -1,0 +1,20 @@
+import os
+import numpy as np
+import pandas as pd
+
+
+
+s_data = pd.read_csv('/Users/Gisele/Downloads/gaza legislative scorecard/Smrithi Votesheet - Smrithi Votesheet.csv')
+
+s_data.head
+
+bill_matrix = s_data.iloc[:, 1:6]
+vote_matrix = s_data.iloc[:, 6:106]
+
+bill_matrix_transposed = bill_matrix.T
+bill_matrix_transposed
+
+bill_matrix_transposed 
+
+result = np.matmul(bill_matrix_transposed, vote_matrix)
+result
