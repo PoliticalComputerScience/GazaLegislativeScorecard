@@ -6,8 +6,8 @@ function App() {
   const [senators, setSenators] = useState([
     { name: 'Keith Self', state: 'TX', weights: [1, 1, 1, 1, 1], score: 0 },
     { name: 'Mary Miller', state: 'IL', weights: [2, 1, 1, 1, 1], score: 0 },
-    { name: 'barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
-    { name: 'Harry Jill', state: 'AL', weights: [2, 1, 4, 1, 1], score: 0 }
+    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
+    { name: 'Harry Jill', state: 'AL', weights: [2, 1, 4, 1, 1], score: 0 },
   ]);
 
   const handleSliderChange = (index, value) => {
@@ -17,17 +17,19 @@ function App() {
   };
 
   const handleSubmit = () => {
-    const updatedSenators = senators.map((senator) => {
-      const newScore = senator.weights.reduce(
-        (total, weight, i) => total + weight * sliderValues[i],
-        0
-      );
-      return { ...senator, score: newScore };
-    });
+    const updatedSenators = senators
+      .map((senator) => {
+        const newScore = senator.weights.reduce(
+          (total, weight, i) => total + weight * sliderValues[i],
+          0
+        );
+        return { ...senator, score: newScore };
+      })
+      .sort((a, b) => b.score - a.score); // Sort by score in descending order
+
     setSenators(updatedSenators);
   };
 
-  // Flash animation for buttons
   const handleButtonClick = (e) => {
     e.target.classList.add('flash');
     setTimeout(() => {
