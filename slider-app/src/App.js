@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './page.css';
 
 function App() {
-  const [sliderValues, setSliderValues] = useState([1, 1, 1, 1, 1]); // 5 sliders default to 1
-  
-  const senators = [
-    { name: 'Rep. Keith Self', state: 'TX', score: 100 },
-    { name: 'Rep. Mary Miller', state: 'IL', score: 100 },
-    // Add other senators or reps as needed
-  ];
+  const [sliderValues, setSliderValues] = useState([1, 1, 1, 1, 1]); 
+  const [senators, setSenators] = useState([
+    { name: 'Keith Self', state: 'TX', weights: [1, 1, 1, 1, 1], score: 0 },
+    { name: 'Mary Miller', state: 'IL', weights: [2, 1, 1, 1, 1], score: 0 },
+    { name: 'barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
+    { name: 'Harry Jill', state: 'AL', weights: [2, 1, 4, 1, 1], score: 0 }
+  ]);
 
   const handleSliderChange = (index, value) => {
     const newValues = [...sliderValues];
@@ -16,29 +16,40 @@ function App() {
     setSliderValues(newValues);
   };
 
+  const handleSubmit = () => {
+    const updatedSenators = senators.map((senator) => {
+      const newScore = senator.weights.reduce(
+        (total, weight, i) => total + weight * sliderValues[i],
+        0
+      );
+      return { ...senator, score: newScore };
+    });
+    setSenators(updatedSenators);
+  };
+
+  // Flash animation for buttons
   const handleButtonClick = (e) => {
     e.target.classList.add('flash');
     setTimeout(() => {
       e.target.classList.remove('flash');
-    }, 300); // Duration of the flash animation
+    }, 300);
   };
+
   return (
     <div className="App">
+      {/* Title Section */}
       <div className="title-card">
         <div className="titles-section">
           <h1>Gaza Legislative Scorecard</h1>
           <h2 className="subtitle">A project made by the Political Computer Scientists of Berkeley</h2>
         </div>
         <div className="button-container">
-          <button onClick={handleButtonClick}>
-            Team Info
-          </button>
-          <button onClick={handleButtonClick}>
-            Research Writeup
-          </button>
+          <button onClick={handleButtonClick}>Team Info</button>
+          <button onClick={handleButtonClick}>Research Writeup</button>
         </div>
       </div>
 
+      {/* Slider Section */}
       <div className="sliders-container">
         {sliderValues.map((value, index) => (
           <div key={index} className="slider-section">
@@ -52,11 +63,10 @@ function App() {
             />
           </div>
         ))}
-        <button onClick={() => console.log('Current Slider Values:', sliderValues)}>
-          Submit
-        </button>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
 
+      {/* Senator Section */}
       <div className="senator-section">
         {senators.map((senator, index) => (
           <div key={index} className="senator-card">
