@@ -1,0 +1,19 @@
+/* src/components/HomePageBanner.css */
+.homepagebanner {
+    background-color: #6a15d2;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .homepagebanner h1 {
+    margin: 10;
+    font-size: 2.5rem;
+  }
+  
+  .homepagebanner p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
