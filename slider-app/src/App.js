@@ -6,8 +6,11 @@ function App() {
   const [senators, setSenators] = useState([
     { name: 'Keith Self', state: 'TX', weights: [1, 1, 1, 1, 1], score: 0 },
     { name: 'Mary Miller', state: 'IL', weights: [2, 1, 1, 1, 1], score: 0 },
-    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
     { name: 'Harry Jill', state: 'AL', weights: [2, 1, 4, 1, 1], score: 0 },
+    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
+    { name: 'fi fll', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
+    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
+    { name: 'y mill', state: 'AL', weights: [2, 6, 4, 1, 1], score: 0 }
   ]);
 
   const handleSliderChange = (index, value) => {
