@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './page.css';
 
 function App() {
-  const [sliderValues, setSliderValues] = useState([1, 1, 1, 1, 1]); 
-  const [senators, setSenators] = useState([
-    { name: 'Keith Self', state: 'TX', weights: [1, 1, 1, 1, 1], score: 0 },
-    { name: 'Mary Miller', state: 'IL', weights: [2, 1, 1, 1, 1], score: 0 },
-    { name: 'Harry Jill', state: 'AL', weights: [2, 1, 4, 1, 1], score: 0 },
-    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
-    { name: 'fi fll', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
-    { name: 'Barry Bill', state: 'CA', weights: [2, 5, 1, 1, 1], score: 0 },
-    { name: 'y mill', state: 'AL', weights: [2, 6, 4, 1, 1], score: 0 }
-  ]);
+  const [sliderValues, setSliderValues] = useState([1, 1, 1, 1, 1]);
+  const [senators, setSenators] = useState([]);
 
+  useEffect(() => {
+    const fetchScoresFromFile = async () => {
+      try {
+        const response = await fetch('slider-app/public/scores.json');
+        const data = await response.json();
+        console.log(data);
+        setSenators(data);
+      } catch (error) {
+        console.error('Error fetching scores:', error);
+      }
+    };
+  
+    fetchScoresFromFile();
+  }, []);
   const handleSliderChange = (index, value) => {
     const newValues = [...sliderValues];
     newValues[index] = value;
@@ -20,16 +26,15 @@ function App() {
   };
 
   const handleSubmit = () => {
-    const updatedSenators = senators
-      .map((senator) => {
-        const newScore = senator.weights.reduce(
-          (total, weight, i) => total + weight * sliderValues[i],
-          0
-        );
-        return { ...senator, score: newScore };
-      })
-      .sort((a, b) => b.score - a.score); // Sort by score in descending order
+    const updatedSenators = senators.map((senator) => {
+      const newScore = senator.weights.reduce(
+        (total, weight, i) => total + weight * sliderValues[i],
+        0
+      );
+      return { ...senator, score: newScore };
+    });
 
+    updatedSenators.sort((a, b) => b.score - a.score); // Sort by score in descending order
     setSenators(updatedSenators);
   };
 
