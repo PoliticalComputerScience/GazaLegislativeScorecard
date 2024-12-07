@@ -212,7 +212,10 @@ const initialSenators = [
 ];
 
 function App() {
-  const [senators, setSenators] = useState(initialSenators);
+  const [senators, setSenators] = useState(initialSenators.map(senator => ({
+    ...senator,
+    formalName: `Sen. ${senator.name}`
+  })));
   const [sliderValues, setSliderValues] = useState({
     q1: 0,
     q2: 0,
@@ -228,6 +231,7 @@ function App() {
 
   const handleSubmit = () => {
     const updatedSenators = senators.map((senator) => {
+      // Calculate alignment percentage
       const numerator = Object.keys(sliderValues).reduce(
         (total, key, i) => total + senator.weights[i] * sliderValues[key],
         0
@@ -257,32 +261,35 @@ function App() {
   const drawAlignmentCircle = (ctx, alignment) => {
     const radius = 40;
     const lineWidth = 10;
-    const centerX = 50; 
-    const centerY = 50; 
+    const centerX = 50; // Canvas center X
+    const centerY = 50; // Canvas center Y
     const endAngle = (Math.PI * 2 * alignment) / 100;
 
-    // color calc, pls help its kinda wonky
+    // Function to calculate color
     const getColorForScore = (score) => {
       if (score < 50) {
         const redIntensity = Math.min(255, Math.floor((score / 50) * 255));
-        return `rgb(${redIntensity}, 0, 0)`; 
+        return `rgb(${redIntensity}, 0, 0)`; // Shades of red
       } else if (score < 80) {
         const yellowIntensity = Math.min(255, Math.floor(((score - 50) / 30) * 255));
-        return `rgb(255, ${yellowIntensity}, 0)`; 
+        return `rgb(255, ${yellowIntensity}, 0)`; // Shades of yellow
       } else {
         const greenIntensity = Math.min(255, Math.floor(((score - 80) / 20) * 255));
-        return `rgb(0, ${greenIntensity}, 0)`; 
+        return `rgb(0, ${greenIntensity}, 0)`; // Shades of green
       }
     };
 
+    // Clear previous drawings
     ctx.clearRect(0, 0, 100, 100);
 
+    // Draw background circle
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.strokeStyle = '#ddd';
     ctx.lineWidth = lineWidth;
     ctx.stroke();
 
+    // Draw progress circle
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, endAngle);
     ctx.strokeStyle = getColorForScore(alignment);
@@ -365,7 +372,7 @@ function App() {
                 />
               </div>
               <div className="senator-quadrant name-quadrant">
-                <h3>{senator.name}</h3>
+                <h3>{senator.formalName}</h3>
               </div>
               <div className="senator-quadrant state-quadrant">
                 <p>State: {senator.state}</p>
