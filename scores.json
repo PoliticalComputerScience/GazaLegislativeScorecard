@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Keith Self",
+    "state": "TX",
+    "weights": [1, 1, 1, 1, 1]
+  },
+  {
+    "name": "Mary Miller",
+    "state": "IL",
+    "weights": [1, 1, 1, 1, 1]
+  },
+  {
+    "name": "Harry Jill",
+    "state": "AL",
+    "weights": [2, 1, 4, 1, 1]
+  },
+  {
+    "name": "Barry Bill",
+    "state": "CA",
+    "weights": [2, 5, 1, 1, 1]
+  },
+  {
+    "name": "fi fll",
+    "state": "CA",
+    "weights": [2, 5, 1, 1, 1]
+  },
+  {
+    "name": "Barry Bill",
+    "state": "CA",
+    "weights": [2, 5, 1, 1, 1]
+  },
+  {
+    "name": "y mill",
+    "state": "AL",
+    "weights": [2, 6, 4, 1, 1]
+  }
+]
