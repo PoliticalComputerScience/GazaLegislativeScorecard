@@ -230,24 +230,37 @@ function App() {
   };
 
   const handleSubmit = () => {
-    const updatedSenators = senators.map((senator) => {
-      // Calculate alignment percentage
-      const numerator = Object.keys(sliderValues).reduce(
-        (total, key, i) => total + senator.weights[i] * sliderValues[key],
-        0
-      );
-      const userMagnitude = Math.sqrt(
-        Object.keys(sliderValues).reduce((sum, key) => sum + sliderValues[key] ** 2, 0)
-      );
-      const senatorMagnitude = Math.sqrt(
-        senator.weights.reduce((sum, weight) => sum + weight ** 2, 0)
-      );
-      const alignment = (numerator / (userMagnitude * senatorMagnitude)) * 100;
+    // Find the maximum possible Euclidean distance
+    const maxDistance = Math.sqrt(5); // 5 dimensions, each ranging from -1 to 1
 
-      return { ...senator, score: alignment };
+    const updatedSenators = senators.map((senator) => {
+      // Convert slider values and senator weights to arrays to ensure consistent order
+      const userVector = ['q1', 'q2', 'q3', 'q4', 'q5'].map(key => sliderValues[key]);
+      const senatorVector = senator.weights;
+
+      // Calculate Euclidean distance
+      const distance = Math.sqrt(
+        userVector.reduce((sum, userValue, index) => {
+          const diff = userValue - senatorVector[index];
+          return sum + diff * diff;
+        }, 0)
+      );
+
+      // Convert distance to alignment score
+      // Invert and normalize: closer distance = higher alignment score
+      const alignmentScore = Math.max(
+        0, 
+        100 * (1 - (distance / maxDistance))
+      );
+
+      return { 
+        ...senator, 
+        score: alignmentScore 
+      };
     });
 
-    updatedSenators.sort((a, b) => b.score - a.score); // Sort by alignment percentage
+    // Sort by alignment percentage in descending order
+    updatedSenators.sort((a, b) => b.score - a.score);
     setSenators(updatedSenators);
   };
 
