@@ -234,11 +234,9 @@ function App() {
     const maxDistance = Math.sqrt(5); // 5 dimensions, each ranging from -1 to 1
 
     const updatedSenators = senators.map((senator) => {
-      // Convert slider values and senator weights to arrays to ensure consistent order
       const userVector = ['q1', 'q2', 'q3', 'q4', 'q5'].map(key => sliderValues[key]);
       const senatorVector = senator.weights;
 
-      // Calculate Euclidean distance
       const distance = Math.sqrt(
         userVector.reduce((sum, userValue, index) => {
           const diff = userValue - senatorVector[index];
@@ -246,8 +244,7 @@ function App() {
         }, 0)
       );
 
-      // Convert distance to alignment score
-      // Invert and normalize: closer distance = higher alignment score
+      
       const alignmentScore = Math.max(
         0, 
         100 * (1 - (distance / maxDistance))
@@ -259,7 +256,6 @@ function App() {
       };
     });
 
-    // Sort by alignment percentage in descending order
     updatedSenators.sort((a, b) => b.score - a.score);
     setSenators(updatedSenators);
   };
@@ -274,35 +270,32 @@ function App() {
   const drawAlignmentCircle = (ctx, alignment) => {
     const radius = 40;
     const lineWidth = 10;
-    const centerX = 50; // Canvas center X
-    const centerY = 50; // Canvas center Y
+    const centerX = 50; 
+    const centerY = 50; 
     const endAngle = (Math.PI * 2 * alignment) / 100;
 
     // Function to calculate color
     const getColorForScore = (score) => {
       if (score < 50) {
         const redIntensity = Math.min(255, Math.floor((score / 50) * 255));
-        return `rgb(${redIntensity}, 0, 0)`; // Shades of red
+        return `rgb(${redIntensity}, 0, 0)`;
       } else if (score < 80) {
         const yellowIntensity = Math.min(255, Math.floor(((score - 50) / 30) * 255));
-        return `rgb(255, ${yellowIntensity}, 0)`; // Shades of yellow
+        return `rgb(255, ${yellowIntensity}, 0)`; 
       } else {
         const greenIntensity = Math.min(255, Math.floor(((score - 80) / 20) * 255));
-        return `rgb(0, ${greenIntensity}, 0)`; // Shades of green
+        return `rgb(0, ${greenIntensity}, 0)`; 
       }
     };
 
-    // Clear previous drawings
     ctx.clearRect(0, 0, 100, 100);
 
-    // Draw background circle
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.strokeStyle = '#ddd';
     ctx.lineWidth = lineWidth;
     ctx.stroke();
 
-    // Draw progress circle
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, endAngle);
     ctx.strokeStyle = getColorForScore(alignment);
