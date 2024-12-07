@@ -1,13 +1,4 @@
-# PCS - Gaza Legislative Scorecard Project
-How have your representatives voted on Israel-Palestine? Data on individual members of Congress can be hard to find and aggregate.
+# Gaza Legislative Scorecard Project
+How are your senators voting on the conflict in Gaza?
 
-Once you've gained access to the repository, add your name here:
-- Athan
-- Tariq
-- Sergio
-- Muiz 
-- Vrushtee 1
-- Kyle
-- Shreyas
-- Guy
-- gisele
+This project was undertaken in the fall semester of 2024 by the members of the Political Computer Science club at Berkeley.
