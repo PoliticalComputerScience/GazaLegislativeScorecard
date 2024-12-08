@@ -5,8 +5,8 @@ import json
  
 
 #convert xlsx files to csv
-folder_path = '/Users/Gisele/Downloads/code practice'
-output_folder = '/Users/Gisele/Downloads/output practice'
+folder_path = '/Users/shreyas/GazaLegislativeScorecard/votesheets'
+output_folder = '//Users/shreyas/GazaLegislativeScorecard/votesheets'
 
 for filename in os.listdir(folder_path):
     if filename.endswith('.xlsx'):

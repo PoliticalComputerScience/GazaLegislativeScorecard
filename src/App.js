@@ -304,20 +304,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {/* Title Section */}
-      <div className="title-card">
-        <div className="titles-section">
-          <h1>Gaza Legislative Scorecard</h1>
-          <p className="subtitle">
-            Please choose where you align, with the closer your dot is to a statement showing your preference.
-          </p>
-        </div>
-        <div className="button-container">
-          <button onClick={handleButtonClick}>Team Info</button>
-          <button onClick={handleButtonClick}>Research Writeup</button>
-        </div>
+      <div className="App">
+    {/* Title Section */}
+    <div className="title-card">
+      <div className="titles-section">
+        <h1>Gaza Legislative Scorecard</h1>
       </div>
+      <div className="button-container">
+        <button onClick={handleButtonClick}>Team Info</button>
+        <button onClick={handleButtonClick}>Research Writeup</button>
+      </div>
+    </div>
+    <div className="subtitle-container">
+      <p>Please choose where you align, with the closer your dot is to a statement showing your preference.</p>
+    </div>
 
       {/* Slider Section */}
       <div className="sliders-container">
