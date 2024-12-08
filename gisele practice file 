@@ -5,8 +5,8 @@ import json
  
 
 #convert xlsx files to csv
-folder_path = '/Users/shreyas/GazaLegislativeScorecard/votesheets'
-output_folder = '//Users/shreyas/GazaLegislativeScorecard/votesheets'
+folder_path = '/Users/Gisele/Downloads/code practice'
+output_folder = '/Users/Gisele/Downloads/output practice'
 
 for filename in os.listdir(folder_path):
     if filename.endswith('.xlsx'):
@@ -35,9 +35,6 @@ def vote_data_transform(data):
     vote_matrix = data.iloc[:, 6:106]
 
     bill_matrix_transposed = bill_matrix.T
-    bill_matrix_transposed
-
-    bill_matrix_transposed 
 
     result = np.matmul(bill_matrix_transposed, vote_matrix)
     return result
@@ -46,3 +43,33 @@ new_mat = vote_data_transform(combined_table)
 
 json_file_path = '/Users/Gisele/Downloads/gaza legislative scorecard/json_output'
 new_mat.to_json(json_file_path, orient= 'records', indent=4)
+
+
+
+
+#use this for table with average votescore by category
+s_dat = pd.read_csv('/Users/Gisele/Downloads/gaza legislative scorecard/Smrithi Votesheet - Smrithi Votesheet.csv')
+s_dat
+bill_matrix1 = s_dat.iloc[:, 1]
+vote_matrix = s_dat.iloc[:, 6:106]
+
+bill_matrix_transposed1 = bill_matrix1.T
+
+result = np.matmul(bill_matrix_transposed1, vote_matrix)
+np.mean(result)
+
+weight_matrix = s_dat.iloc[:, 1:6]
+vote_matrix = s_dat.iloc[:, 6:106]
+
+pivot_results = pd.DataFrame()
+for i in range(weight_matrix.shape[1]):
+    weight_column = weight_matrix.iloc[:, i]
+
+    weighted_scores = vote_matrix.mul(weight_column, axis=0)
+    average_scores = weighted_scores.mean(axis=1)
+
+    pivot_results[f'Category_{i+1}'] = average_scores
+
+pivot_results.index=s_dat.index
+
+pivot_results
