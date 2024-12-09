@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GazaLegislativeScorecard/static/css/main.7c5bca21.css",
-    "main.js": "/GazaLegislativeScorecard/static/js/main.0801b43b.js",
+    "main.js": "/GazaLegislativeScorecard/static/js/main.282e1c04.js",
     "static/js/453.2e783143.chunk.js": "/GazaLegislativeScorecard/static/js/453.2e783143.chunk.js",
     "index.html": "/GazaLegislativeScorecard/index.html",
     "main.7c5bca21.css.map": "/GazaLegislativeScorecard/static/css/main.7c5bca21.css.map",
-    "main.0801b43b.js.map": "/GazaLegislativeScorecard/static/js/main.0801b43b.js.map",
+    "main.282e1c04.js.map": "/GazaLegislativeScorecard/static/js/main.282e1c04.js.map",
     "453.2e783143.chunk.js.map": "/GazaLegislativeScorecard/static/js/453.2e783143.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7c5bca21.css",
-    "static/js/main.0801b43b.js"
+    "static/js/main.282e1c04.js"
   ]
 }
