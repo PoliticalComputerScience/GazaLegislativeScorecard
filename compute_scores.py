@@ -54,7 +54,7 @@ with open("scores.json", "w") as outfile:
 
         scores.append({
             "name": name[:-1],
-            "state": state[:-2],
+            "state": state[:-1],
             "weights": weights,
             "score": 0
         })
