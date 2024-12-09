@@ -163,6 +163,7 @@ function App() {
       setTimeout(() => {
         e.target.classList.remove('flash');
       }, 300);
+      location.href = "https://github.com/PoliticalComputerScience/GazaLegislativeScorecard";
     };
   
     const drawAlignmentCircle = (ctx, alignment) => {
@@ -209,7 +210,7 @@ function App() {
           <h1>Gaza Legislative Scorecard</h1>
         </div>
         <div className="button-container">
-          <button onClick={handleButtonClick}>Team Info</button>
+          <button onClick={handleButtonClick}>More Info</button>
           <button onClick={handleButtonClick}>Research Writeup</button>
         </div>
       </div>
