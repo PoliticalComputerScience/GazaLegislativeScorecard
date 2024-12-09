@@ -64,7 +64,9 @@ with open("scores.json", "w") as outfile:
 # Write json to file:
 REPLACE_LINE = 110
 
-with open("src/App.js", "r+") as app_js:
+with open("src/App.js", "r") as app_js:
     js_lines = app_js.readlines()
     js_lines[REPLACE_LINE] = "const initialSenators = " + str(scores) + ";"
+
+with open("src/App.js", "w") as app_js:
     app_js.writelines(js_lines)

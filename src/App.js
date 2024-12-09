@@ -106,303 +106,201 @@ const senatorImages = {
 
 // Add more senator-to-image mappings as needed
 
-
 // Hardcoded list of senators for the 118th Congress (2023-2025)
-const initialSenators = [
-  { name: 'Patty Murray', state: 'WA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Maria Cantwell', state: 'WA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Laphonza Butler', state: 'CA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Alex Padilla', state: 'CA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ron Wyden', state: 'OR', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jeff Merkley', state: 'OR', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mitch McConnell', state: 'KY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Rand Paul', state: 'KY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Chuck Schumer', state: 'NY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Kirsten Gillibrand', state: 'NY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Bernie Sanders', state: 'VT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Peter Welch', state: 'VT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Elizabeth Warren', state: 'MA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ed Markey', state: 'MA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Angus King', state: 'ME', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Susan Collins', state: 'ME', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Dick Durbin', state: 'IL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tammy Duckworth', state: 'IL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Bob Casey', state: 'PA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Fetterman', state: 'PA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ben Cardin', state: 'MD', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Chris Van Hollen', state: 'MD', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Amy Klobuchar', state: 'MN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tina Smith', state: 'MN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Sherrod Brown', state: 'OH', weights: [1,1,1,1,1], score: 0 },
-  { name: 'J.D. Vance', state: 'OH', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Debbie Stabenow', state: 'MI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Gary Peters', state: 'MI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tim Kaine', state: 'VA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mark Warner', state: 'VA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Raphael Warnock', state: 'GA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jon Ossoff', state: 'GA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Boozman', state: 'AR', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Martin Heinrich', state: 'NM', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ben Ray Lujan', state: 'NM', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Hickenlooper', state: 'CO', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Michael Bennet', state: 'CO', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Catherine Cortez Masto', state: 'NV', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jacky Rosen', state: 'NV', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mark Kelly', state: 'AZ', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Kyrsten Sinema', state: 'AZ', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Cory Booker', state: 'NJ', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Bob Menendez', state: 'NJ', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jack Reed', state: 'RI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Sheldon Whitehouse', state: 'RI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tom Carper', state: 'DE', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Chris Coons', state: 'DE', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Chris Murphy', state: 'CT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Richard Blumenthal', state: 'CT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jeanne Shaheen', state: 'NH', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Maggie Hassan', state: 'NH', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Joe Manchin', state: 'WV', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Shelley Capito', state: 'WV', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ted Cruz', state: 'TX', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Cornyn', state: 'TX', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jim Risch', state: 'ID', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mike Crapo', state: 'ID', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Thune', state: 'SD', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mike Rounds', state: 'SD', weights: [1,1,1,1,1], score: 0 },
-  { name: 'James Lankford', state: 'OK', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Roger Wicker', state: 'MS', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Cindy Hyde-Smith', state: 'MS', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Kennedy', state: 'LA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Bill Cassidy', state: 'LA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Josh Hawley', state: 'MO', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jerry Moran', state: 'KS', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Roger Marshall', state: 'KS', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Kevin Cramer', state: 'ND', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Hoeven', state: 'ND', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Deb Fischer', state: 'NE', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Pete Ricketts', state: 'NE', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Lindsey Graham', state: 'SC', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tim Scott', state: 'SC', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tommy Tuberville', state: 'AL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Katie Britt', state: 'AL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Marco Rubio', state: 'FL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Rick Scott', state: 'FL', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mike Lee', state: 'UT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mitt Romney', state: 'UT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'John Barrasso', state: 'WY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Cynthia Lummis', state: 'WY', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Dan Sullivan', state: 'AK', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Lisa Murkowski', state: 'AK', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tom Cotton', state: 'AR', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Brian Schatz', state: 'HI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mazie Hirono', state: 'HI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Todd Young', state: 'IN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Mike Braun', state: 'IN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Joni Ernst', state: 'IA', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Marsha Blackburn', state: 'TN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Markwayne Mullen', state: 'OK', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Steve Daines', state: 'MT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'George Helmy', state: 'NJ', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Tammy Baldwin', state: 'WI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Eric Schmitt', state: 'MO', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Thom Tillis', state: 'NC', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Ron Johnson', state: 'WI', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Jon Tester', state: 'MT', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Bill Hagerty', state: 'TN', weights: [1,1,1,1,1], score: 0 },
-  { name: 'Chuck Grassley', state: 'IA', weights: [1,1,1,1,1], score: 0 }
-];
+const initialSenators = [{'name': 'Tommy Tuberville', 'state': 'R-AL', 'weights': [0.33333333333333337, 0.12820512820512822, 0.6153846153846154, 0.25641025641025644, 0.07692307692307691], 'score': 0}, {'name': 'Katie Britt', 'state': 'R-AL', 'weights': [0.547008547008547, 0.2136752136752137, 0.905982905982906, 0.10256410256410259, 0.5384615384615384], 'score': 0}, {'name': 'Lisa Murkowski', 'state': 'R-AK', 'weights': [0.3333333333333333, 0.12820512820512822, 0.3760683760683761, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Dan Sullivan', 'state': 'R-AK', 'weights': [0.5811965811965812, 0.2478632478632479, 0.5641025641025642, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Kyrsten Sinema', 'state': 'I-AZ, formerly D-AZ', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Mark Kelly', 'state': 'D-AZ', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'John Boozman', 'state': 'R-AR', 'weights': [0.3504273504273504, 0.2478632478632479, 0.6837606837606838, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Tom Cotton', 'state': 'R-AR', 'weights': [0.5555555555555556, 0.2222222222222223, 0.9145299145299145, 0.10256410256410259, 0.5128205128205129], 'score': 0}, {'name': 'Alex Padilla', 'state': 'D-CA', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Laphonza Butler', 'state': 'D-CA', 'weights': [0.3162393162393163, -0.11111111111111112, 0.18803418803418806, 0.0, 0.0], 'score': 0}, {'name': 'Michael Bennett', 'state': 'D-CO', 'weights': [0.28205128205128205, -0.27350427350427353, 0.11111111111111112, 0.0, 0.0], 'score': 0}, {'name': 'John Hickenlooper', 'state': 'D-CO', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Richard Blumenthal', 'state': 'D-CT', 'weights': [0.28205128205128205, -0.1452991452991453, 0.09401709401709403, 0.0, 0.10256410256410259], 'score': 0}, {'name': 'Chris Murphy', 'state': 'D-CT', 'weights': [-0.29914529914529914, -0.1452991452991453, -0.0683760683760684, 0.0, 0.0], 'score': 0}, {'name': 'Tom Carper', 'state': 'D-DE', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Chris Coons', 'state': 'D-DE', 'weights': [0.2905982905982906, -0.13675213675213677, 0.22222222222222224, 0.0, 0.0], 'score': 0}, {'name': 'Marco Rubio', 'state': 'R-FL', 'weights': [0.6837606837606838, 0.4529914529914531, 0.9487179487179488, 0.25641025641025644, 0.6923076923076923], 'score': 0}, {'name': 'Rick Scott', 'state': 'R-FL', 'weights': [0.5555555555555556, 0.0854700854700855, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Jon Ossoff', 'state': 'D-GA', 'weights': [-0.09401709401709402, -0.1452991452991453, -9.489085680556894e-18, 0.0, 0.0], 'score': 0}, {'name': 'Raphael Warnock', 'state': 'D-GA', 'weights': [-0.29914529914529914, -0.27350427350427353, -0.2136752136752137, 0.0, 0.0], 'score': 0}, {'name': 'Brian Schatz', 'state': 'D-HI', 'weights': [-0.3247863247863248, -0.25641025641025644, -0.1452991452991453, 0.0, 0.0], 'score': 0}, {'name': 'Mazie Hirono', 'state': 'D-HI', 'weights': [-0.26495726495726496, -0.3418803418803419, 0.10256410256410255, 0.0, 0.0], 'score': 0}, {'name': 'Mike Crapo', 'state': 'R-ID', 'weights': [0.547008547008547, 0.2136752136752137, 0.8632478632478633, 0.25641025641025644, 0.4358974358974359], 'score': 0}, {'name': 'Jim Risch', 'state': 'R-ID', 'weights': [0.41880341880341876, 0.2136752136752137, 0.6324786324786326, 0.25641025641025644, 0.25641025641025644], 'score': 0}, {'name': 'Dick Durbin', 'state': 'D-IL', 'weights': [-0.29914529914529914, -0.1452991452991453, -0.23931623931623935, 0.0, 0.0], 'score': 0}, {'name': 'Tammy Duckworth', 'state': 'D-IL', 'weights': [0.28205128205128205, -0.1452991452991453, 0.08547008547008547, 0.0, 0.0], 'score': 0}, {'name': 'Todd Young', 'state': 'R-IN', 'weights': [0.3333333333333333, 0.12820512820512822, 0.3760683760683761, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Mike Braun', 'state': 'R-IN', 'weights': [0.02564102564102564, 0.11111111111111112, 0.27350427350427353, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Chuck Grassley', 'state': 'R-IA', 'weights': [0.3504273504273504, 0.11111111111111112, 0.7948717948717949, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Joni Ernst', 'state': 'R-IA', 'weights': [0.5641025641025641, 0.2307692307692308, 0.9401709401709403, 0.25641025641025644, 0.5384615384615384], 'score': 0}, {'name': 'Jerry Moran', 'state': 'R-KS', 'weights': [0.3333333333333333, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Roger Marshall', 'state': 'R-KS', 'weights': [0.547008547008547, 0.2136752136752137, 0.4786324786324787, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Mitch McConnell', 'state': 'R-KY', 'weights': [0.3333333333333333, 0.12820512820512822, 0.3760683760683761, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Rand Paul', 'state': 'R-KY', 'weights': [0.29914529914529914, 0.2136752136752137, 0.4444444444444445, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Bill Cassidy', 'state': 'R-LA', 'weights': [0.3333333333333333, 0.2307692307692308, 0.4786324786324787, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'John Kennedy', 'state': 'R-LA', 'weights': [0.5811965811965812, 0.11111111111111112, 0.5641025641025642, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Susan Collins', 'state': 'R-ME', 'weights': [0.3333333333333333, 0.2307692307692308, 0.6752136752136753, 0.10256410256410259, 0.3076923076923077], 'score': 0}, {'name': 'Angus King', 'state': 'I-ME (D-ME)', 'weights': [-0.29914529914529914, -0.27350427350427353, -0.09401709401709404, 0.0, 0.0], 'score': 0}, {'name': 'Ben Cardin', 'state': 'D-MD', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Chris Van Hollen', 'state': 'D-MD', 'weights': [-0.26495726495726496, -0.47008547008547014, 0.0769230769230769, 0.0, 0.0], 'score': 0}, {'name': 'Elizabeth Warren', 'state': 'D-MA', 'weights': [-0.26495726495726496, -0.23931623931623933, 0.0769230769230769, 0.0, 0.0], 'score': 0}, {'name': 'Ed Markey', 'state': 'D-MA', 'weights': [-0.26495726495726496, -0.11111111111111112, -0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Debbie Stabenow', 'state': 'D-MI', 'weights': [0.28205128205128205, -0.27350427350427353, -0.05982905982905983, 0.0, 0.0], 'score': 0}, {'name': 'Gary Peters', 'state': 'D-MI', 'weights': [0.3589743589743589, -0.1452991452991453, 0.13675213675213677, 0.0, 0.07692307692307694], 'score': 0}, {'name': 'Amy Klobuchar', 'state': 'D-MN', 'weights': [0.28205128205128205, -0.5042735042735044, 0.11111111111111112, 0.0, 0.0], 'score': 0}, {'name': 'Tina Smith', 'state': 'D-MN', 'weights': [-0.29914529914529914, -0.27350427350427353, -0.2136752136752137, 0.0, 0.0], 'score': 0}, {'name': 'Roger Wicker', 'state': 'R-MS', 'weights': [0.3504273504273504, 0.2478632478632479, 0.7692307692307693, 0.10256410256410259, 0.2564102564102564], 'score': 0}, {'name': 'Cindy Hyde-Smith', 'state': 'R-MS', 'weights': [0.5811965811965812, 0.1452991452991453, 0.4615384615384616, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Josh Hawley', 'state': 'R-MO', 'weights': [0.547008547008547, 0.2820512820512821, 0.7094017094017095, 0.10256410256410259, 0.6410256410256411], 'score': 0}, {'name': 'Eric Schmitt', 'state': 'R-MO', 'weights': [0.28205128205128205, 0.2307692307692308, 0.4615384615384616, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Jon Tester', 'state': 'D-MT', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Steve Daines', 'state': 'R-MT', 'weights': [0.5811965811965812, 0.2478632478632479, 0.7948717948717949, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Deb Fischer', 'state': 'R-NE', 'weights': [0.547008547008547, 0.2136752136752137, 0.829059829059829, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Pete Ricketts', 'state': 'R-NE', 'weights': [0.6495726495726496, 0.2136752136752137, 0.7094017094017095, 0.10256410256410259, 0.4871794871794872], 'score': 0}, {'name': 'Catherine Cortez Masto', 'state': 'D-NV', 'weights': [0.28205128205128205, -0.1452991452991453, 0.13675213675213677, 0.0, 0.0], 'score': 0}, {'name': 'Jacky Rosen', 'state': 'D-NV', 'weights': [0.28205128205128205, 0.05982905982905983, 0.26495726495726496, 0.0, 0.35897435897435903], 'score': 0}, {'name': 'Jeanne Shaeen', 'state': 'D-NH', 'weights': [-0.29914529914529914, -0.1452991452991453, -0.008547008547008574, 0.0, 0.0], 'score': 0}, {'name': 'Maggie Hassan', 'state': 'D-NH', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Bob Menendez', 'state': 'D-NJ', 'weights': [-0.008547008547008548, -0.1452991452991453, -0.08547008547008547, 0.0, 0.0], 'score': 0}, {'name': 'Cory Booker', 'state': 'D-NJ', 'weights': [0.28205128205128205, -0.27350427350427353, -0.008547008547008534, 0.0, 0.0], 'score': 0}, {'name': 'Martin Heinrich', 'state': 'D-NM', 'weights': [-0.26495726495726496, -0.11111111111111112, -0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Ben Ray Luján', 'state': 'D-NM', 'weights': [-0.26495726495726496, -0.11111111111111112, -0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Chuck Schumer', 'state': 'D-NY', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Kirsten Gillibrand', 'state': 'D-NY', 'weights': [0.28205128205128205, -0.1452991452991453, 0.2136752136752137, 0.0, 0.10256410256410259], 'score': 0}, {'name': 'Thom Tillis', 'state': 'R-NC', 'weights': [0.5641025641025641, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Ted Budd', 'state': 'R-NC', 'weights': [0.6239316239316238, 0.2136752136752137, 0.8632478632478633, 0.25641025641025644, 0.5128205128205129], 'score': 0}, {'name': 'John Hoeven', 'state': 'R-ND', 'weights': [0.6153846153846153, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4615384615384615], 'score': 0}, {'name': 'Kevin Cramer', 'state': 'R-ND', 'weights': [0.5641025641025641, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Sherrod Brown', 'state': 'D-OH', 'weights': [0.28205128205128205, -0.1452991452991453, 0.17094017094017094, 0.15384615384615383, 0.0], 'score': 0}, {'name': 'JD Vance*', 'state': 'R-OH', 'weights': [0.0, 0.0, 0.25641025641025644, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'James Lankford', 'state': 'R-OK', 'weights': [0.5641025641025641, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Markwayne Mullin', 'state': 'R-OK', 'weights': [0.3162393162393162, 0.2136752136752137, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Ron Wyden', 'state': 'D-OR', 'weights': [0.28205128205128205, -0.1452991452991453, 0.08547008547008547, 0.0, 0.0], 'score': 0}, {'name': 'Jeff Merkley', 'state': 'D-OR', 'weights': [-0.4615384615384615, -0.23931623931623933, -0.1965811965811966, 0.0, 0.0], 'score': 0}, {'name': 'Bob Casey Jr.', 'state': 'D-PA', 'weights': [0.3589743589743589, -0.1452991452991453, 0.13675213675213677, 0.0, 0.07692307692307694], 'score': 0}, {'name': 'John Fetterman', 'state': 'D-PA', 'weights': [0.28205128205128205, -0.1452991452991453, 0.13675213675213677, 0.0, 0.0], 'score': 0}, {'name': 'Jack Reed', 'state': 'D-RI', 'weights': [0.28205128205128205, -0.1452991452991453, 0.01709401709401711, 0.0, -0.025641025641025647], 'score': 0}, {'name': 'Sheldon Whitehouse', 'state': 'D-RI', 'weights': [0.28205128205128205, -0.1452991452991453, 0.13675213675213677, 0.0, 0.0], 'score': 0}, {'name': 'Lindsey Graham', 'state': 'R-SC', 'weights': [0.5641025641025641, -0.008547008547008548, 0.6837606837606838, 0.10256410256410259, 0.41025641025641024], 'score': 0}, {'name': 'Tim Scott', 'state': 'R-SC', 'weights': [0.41880341880341876, 0.2136752136752137, 0.9145299145299145, 0.10256410256410259, 0.5641025641025641], 'score': 0}, {'name': 'John Thune', 'state': 'R-SD', 'weights': [0.5641025641025641, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Mike Rounds', 'state': 'R-SD', 'weights': [0.3504273504273504, 0.2478632478632479, 0.5641025641025642, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Marsha Blackburn', 'state': 'R-TN', 'weights': [0.5641025641025641, 0.2307692307692308, 1.0, 0.25641025641025644, 0.4871794871794872], 'score': 0}, {'name': 'Bill Hagerty', 'state': 'R-TN', 'weights': [0.33333333333333337, 0.12820512820512822, 0.6923076923076923, 0.10256410256410259, 0.3076923076923077], 'score': 0}, {'name': 'John Cornyn', 'state': 'R-TX', 'weights': [0.3846153846153846, 0.12820512820512822, 0.6068376068376069, 0.10256410256410259, 0.33333333333333337], 'score': 0}, {'name': 'Ted Cruz', 'state': 'R-TX', 'weights': [0.6153846153846153, 0.12820512820512822, 0.7606837606837608, 0.25641025641025644, 0.33333333333333337], 'score': 0}, {'name': 'Mike Lee', 'state': 'R-UT', 'weights': [0.3162393162393162, 0.2136752136752137, 0.6324786324786326, 0.25641025641025644, 0.20512820512820512], 'score': 0}, {'name': 'Mitt Romney', 'state': 'R-UT', 'weights': [0.3504273504273504, 0.1452991452991453, 0.4615384615384616, 0.10256410256410259, 0.07692307692307691], 'score': 0}, {'name': 'Bernie Sanders', 'state': 'I-VT (D-VT)', 'weights': [-0.7350427350427351, -0.4615384615384616, -0.25641025641025644, 0.0, 0.0], 'score': 0}, {'name': 'Peter Welch', 'state': 'D-VT', 'weights': [-0.5897435897435898, -0.47008547008547014, -0.2478632478632479, 0.0, 0.0], 'score': 0}, {'name': 'Mark Warner', 'state': 'D-VA', 'weights': [0.28205128205128205, -0.27350427350427353, 0.11111111111111112, 0.0, 0.025641025641025647], 'score': 0}, {'name': 'Tim Kaine', 'state': 'D-VA', 'weights': [-0.29914529914529914, -0.27350427350427353, -0.14529914529914534, 0.0, 0.0], 'score': 0}, {'name': 'Patty Murray', 'state': 'D-WA', 'weights': [0.28205128205128205, -0.27350427350427353, -0.05982905982905983, 0.0, 0.0], 'score': 0}, {'name': 'Maria Cantwell', 'state': 'D-WA', 'weights': [0.28205128205128205, -0.1452991452991453, -0.034188034188034185, 0.0, 0.0], 'score': 0}, {'name': 'Joe Manchin', 'state': 'D-WV', 'weights': [0.28205128205128205, 0.12820512820512822, 0.01709401709401711, 0.0, 0.0], 'score': 0}, {'name': 'Shelley Capito', 'state': 'R-WV', 'weights': [0.3333333333333333, 0.2307692307692308, 0.7094017094017095, 0.10256410256410259, 0.4358974358974359], 'score': 0}, {'name': 'Ron Johnson', 'state': 'R-WI', 'weights': [0.3162393162393162, 0.2136752136752137, 0.4786324786324787, 0.10256410256410259, 0.20512820512820512], 'score': 0}, {'name': 'Tammy Baldwin', 'state': 'D-WI', 'weights': [-0.008547008547008548, -0.1452991452991453, -0.08547008547008547, 0.0, 0.0], 'score': 0}, {'name': 'John Barasso', 'state': 'R-WY', 'weights': [0.5811965811965812, 0.11111111111111112, 0.9487179487179488, 0.25641025641025644, 0.4358974358974359], 'score': 0}, {'name': 'Cynthia Lummis', 'state': 'R-WY', 'weights': [0.5641025641025641, 0.12820512820512822, 0.3760683760683761, 0.10256410256410259, 0.07692307692307691], 'score': 0}];
 
 function App() {
-  const [senators, setSenators] = useState(initialSenators.map(senator => ({
-    ...senator,
-    formalName: `Sen. ${senator.name}`
-  })));
-  const [sliderValues, setSliderValues] = useState({
-    q1: 0,
-    q2: 0,
-    q3: 0,
-    q4: 0,
-    q5: 0,
-  });
-
-  const handleSliderChange = (question, value) => {
-    const mappedValue = (value - 3) / 3; // Map 0-6 to -1 to 1
-    setSliderValues((prevValues) => ({ ...prevValues, [question]: mappedValue }));
-  };
-
-  const handleSubmit = () => {
-    // Find the maximum possible Euclidean distance
-    const maxDistance = Math.sqrt(5); // 5 dimensions, each ranging from -1 to 1
-
-    const updatedSenators = senators.map((senator) => {
-      const userVector = ['q1', 'q2', 'q3', 'q4', 'q5'].map(key => sliderValues[key]);
-      const senatorVector = senator.weights;
-
-      const distance = Math.sqrt(
-        userVector.reduce((sum, userValue, index) => {
-          const diff = userValue - senatorVector[index];
-          return sum + diff * diff;
-        }, 0)
-      );
-
-      
-      const alignmentScore = Math.max(
-        0, 
-        100 * (1 - (distance / maxDistance))
-      );
-
-      return { 
-        ...senator, 
-        score: alignmentScore 
-      };
+    const [senators, setSenators] = useState(initialSenators.map(senator => ({
+      ...senator,
+      formalName: `Sen. ${senator.name}`
+    })));
+    const [sliderValues, setSliderValues] = useState({
+      q1: 0,
+      q2: 0,
+      q3: 0,
+      q4: 0,
+      q5: 0,
     });
-
-    updatedSenators.sort((a, b) => b.score - a.score);
-    setSenators(updatedSenators);
-  };
-
-  const handleButtonClick = (e) => {
-    e.target.classList.add('flash');
-    setTimeout(() => {
-      e.target.classList.remove('flash');
-    }, 300);
-  };
-
-  const drawAlignmentCircle = (ctx, alignment) => {
-    const radius = 40;
-    const lineWidth = 10;
-    const centerX = 50; 
-    const centerY = 50; 
-    const endAngle = (Math.PI * 2 * alignment) / 100;
-
-    // Function to calculate color
-    const getColorForScore = (score) => {
-      if (score < 50) {
-        const redIntensity = Math.min(255, Math.floor((score / 50) * 255));
-        return `rgb(${redIntensity}, 0, 0)`;
-      } else if (score < 80) {
-        const yellowIntensity = Math.min(255, Math.floor(((score - 50) / 30) * 255));
-        return `rgb(255, ${yellowIntensity}, 0)`; 
-      } else {
-        const greenIntensity = Math.min(255, Math.floor(((score - 80) / 20) * 255));
-        return `rgb(0, ${greenIntensity}, 0)`; 
-      }
+  
+    const handleSliderChange = (question, value) => {
+      const mappedValue = (value - 3) / 3; // Map 0-6 to -1 to 1
+      setSliderValues((prevValues) => ({ ...prevValues, [question]: mappedValue }));
     };
-
-    ctx.clearRect(0, 0, 100, 100);
-
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-    ctx.strokeStyle = '#ddd';
-    ctx.lineWidth = lineWidth;
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, endAngle);
-    ctx.strokeStyle = getColorForScore(alignment);
-    ctx.lineWidth = lineWidth;
-    ctx.stroke();
-  };
-
-  return (
-      <div className="App">
-    {/* Title Section */}
-    <div className="title-card">
-      <div className="titles-section">
-        <h1>Gaza Legislative Scorecard</h1>
-      </div>
-      <div className="button-container">
-        <button onClick={handleButtonClick}>Team Info</button>
-        <button onClick={handleButtonClick}>Research Writeup</button>
-      </div>
-    </div>
-    <div className="subtitle-container">
-      <p>Please choose where you align, with the closer your dot is to a statement showing your preference.</p>
-    </div>
-
-      {/* Slider Section */}
-      <div className="sliders-container">
-        {[
-          {
-            id: 'q1',
-            left: 'The United States government should immediately and unconditionally stop all sales of weapons to Israel',
-            right: 'The United States government should increase military aid to Israel substantially and unconditionally for whatever amount of weaponry Israel requires',
-          },
-          {
-            id: 'q2',
-            left: 'The United States government should substantially and unconditionally increase humanitarian aid to Gaza, the West Bank, and southern Lebanon until each region is stable and fully rebuilt',
-            right: 'The United States should immediately and unconditionally cease to provide humanitarian aid to Gaza and the West Bank',
-          },
-          {
-            id: 'q3',
-            left: 'The United States should immediately issue a resolution stating that the war between Israel and Hamas was the product of Israeli occupation...',
-            right: 'The United States should immediately issue a resolution stating that the war between Israel and Hamas was exclusively the product of Hamas\'s aggression...',
-          },
-          {
-            id: 'q4',
-            left: 'Protests on college campuses are entirely justified. All actions taken by protestors have been legitimate acts of political resistance.',
-            right: 'Protests on college campuses are entirely unjustified. Actions taken by protestors are universally illegitimate.',
-          },
-          {
-            id: 'q5',
-            left: 'the United States should unconditionally support an end to conflict between Israel and Hamas under which Israel ceases the construction of settlements on Palestinian land and commit itself to a 2 state solution with protections for Palestinian sovereignty',
-            right: 'the United States should reject any proposal for ceasefire until such time as Israel has achieved each of its war aims. the united states should support continued Israeli governance of itself and Palestine and should reject any attempt at a 2 state solution',
-          },
-        ].map((question) => (
-          <div key={question.id} className="slider-wrapper">
-            <div className="slider-text">
-              <p className="left-statement">{question.left}</p>
-              <p className="right-statement">{question.right}</p>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="6"
-              defaultValue="3"
-              onChange={(e) => handleSliderChange(question.id, parseInt(e.target.value))}
-            />
-          </div>
-        ))}
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-
-      {/* Senator Section */}
-      <div className="senator-section">
-        <div className="senator-grid">
-          {senators.map((senator, index) => (
-            <div key={index} className="senator-card">
-              <div className="senator-quadrant photo-quadrant">
-                <img
-                  src={senatorImages[senator.name] || '/api/placeholder/100/100'}
-                  alt={`${senator.name}'s profile`}
-                  className="senator-photo"
-                />
-              </div>
-              <div className="senator-quadrant name-quadrant">
-                <h3>{senator.formalName}</h3>
-              </div>
-              <div className="senator-quadrant state-quadrant">
-                <p>State: {senator.state}</p>
-              </div>
-              <div className="senator-quadrant alignment-quadrant">
-                <p>Alignment: <span>{senator.score.toFixed(2)}%</span></p>
-                <canvas
-                  className="alignment-circle"
-                  width="100"
-                  height="100"
-                  ref={(canvas) => {
-                    if (canvas) {
-                      const ctx = canvas.getContext('2d');
-                      drawAlignmentCircle(ctx, senator.score);
-                    }
-                  }}
-                ></canvas>
-              </div>
-            </div>
-          ))}
+  
+    const handleSubmit = () => {
+      // Find the maximum possible Euclidean distance
+      const maxDistance = Math.sqrt(5); // 5 dimensions, each ranging from -1 to 1
+  
+      const updatedSenators = senators.map((senator) => {
+        const userVector = ['q1', 'q2', 'q3', 'q4', 'q5'].map(key => sliderValues[key]);
+        const senatorVector = senator.weights;
+  
+        const distance = Math.sqrt(
+          userVector.reduce((sum, userValue, index) => {
+            const diff = userValue - senatorVector[index];
+            return sum + diff * diff;
+          }, 0)
+        );
+  
+        
+        const alignmentScore = Math.max(
+          0, 
+          100 * (1 - (distance / maxDistance))
+        );
+  
+        return { 
+          ...senator, 
+          score: alignmentScore 
+        };
+      });
+  
+      updatedSenators.sort((a, b) => b.score - a.score);
+      setSenators(updatedSenators);
+    };
+  
+    const handleButtonClick = (e) => {
+      e.target.classList.add('flash');
+      setTimeout(() => {
+        e.target.classList.remove('flash');
+      }, 300);
+    };
+  
+    const drawAlignmentCircle = (ctx, alignment) => {
+      const radius = 40;
+      const lineWidth = 10;
+      const centerX = 50; 
+      const centerY = 50; 
+      const endAngle = (Math.PI * 2 * alignment) / 100;
+  
+      // Function to calculate color
+      const getColorForScore = (score) => {
+        if (score < 50) {
+          const redIntensity = Math.min(255, Math.floor((score / 50) * 255));
+          return `rgb(${redIntensity}, 0, 0)`;
+        } else if (score < 80) {
+          const yellowIntensity = Math.min(255, Math.floor(((score - 50) / 30) * 255));
+          return `rgb(255, ${yellowIntensity}, 0)`; 
+        } else {
+          const greenIntensity = Math.min(255, Math.floor(((score - 80) / 20) * 255));
+          return `rgb(0, ${greenIntensity}, 0)`; 
+        }
+      };
+  
+      ctx.clearRect(0, 0, 100, 100);
+  
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = '#ddd';
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+  
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, endAngle);
+      ctx.strokeStyle = getColorForScore(alignment);
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+    };
+  
+    return (
+        <div className="App">
+      {/* Title Section */}
+      <div className="title-card">
+        <div className="titles-section">
+          <h1>Gaza Legislative Scorecard</h1>
+        </div>
+        <div className="button-container">
+          <button onClick={handleButtonClick}>Team Info</button>
+          <button onClick={handleButtonClick}>Research Writeup</button>
         </div>
       </div>
-    </div>
-  );
-}
-
-export default App;
+      <div className="subtitle-container">
+        <p>Please choose where you align, with the closer your dot is to a statement showing your preference.</p>
+      </div>
+  
+        {/* Slider Section */}
+        <div className="sliders-container">
+          {[
+            {
+              id: 'q1',
+              left: 'The United States government should immediately and unconditionally stop all sales of weapons to Israel',
+              right: 'The United States government should increase military aid to Israel substantially and unconditionally for whatever amount of weaponry Israel requires',
+            },
+            {
+              id: 'q2',
+              left: 'The United States government should substantially and unconditionally increase humanitarian aid to Gaza, the West Bank, and southern Lebanon until each region is stable and fully rebuilt',
+              right: 'The United States should immediately and unconditionally cease to provide humanitarian aid to Gaza and the West Bank',
+            },
+            {
+              id: 'q3',
+              left: 'The United States should immediately issue a resolution stating that the war between Israel and Hamas was the product of Israeli occupation...',
+              right: 'The United States should immediately issue a resolution stating that the war between Israel and Hamas was exclusively the product of Hamas\'s aggression...',
+            },
+            {
+              id: 'q4',
+              left: 'Protests on college campuses are entirely justified. All actions taken by protestors have been legitimate acts of political resistance.',
+              right: 'Protests on college campuses are entirely unjustified. Actions taken by protestors are universally illegitimate.',
+            },
+            {
+              id: 'q5',
+              left: 'the United States should unconditionally support an end to conflict between Israel and Hamas under which Israel ceases the construction of settlements on Palestinian land and commit itself to a 2 state solution with protections for Palestinian sovereignty',
+              right: 'the United States should reject any proposal for ceasefire until such time as Israel has achieved each of its war aims. the united states should support continued Israeli governance of itself and Palestine and should reject any attempt at a 2 state solution',
+            },
+          ].map((question) => (
+            <div key={question.id} className="slider-wrapper">
+              <div className="slider-text">
+                <p className="left-statement">{question.left}</p>
+                <p className="right-statement">{question.right}</p>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="6"
+                defaultValue="3"
+                onChange={(e) => handleSliderChange(question.id, parseInt(e.target.value))}
+              />
+            </div>
+          ))}
+          <button onClick={handleSubmit}>Submit</button>
+        </div>
+  
+        {/* Senator Section */}
+        <div className="senator-section">
+          <div className="senator-grid">
+            {senators.map((senator, index) => (
+              <div key={index} className="senator-card">
+                <div className="senator-quadrant photo-quadrant">
+                  <img
+                    src={senatorImages[senator.name] || '/api/placeholder/100/100'}
+                    alt={`${senator.name}'s profile`}
+                    className="senator-photo"
+                  />
+                </div>
+                <div className="senator-quadrant name-quadrant">
+                  <h3>{senator.formalName}</h3>
+                </div>
+                <div className="senator-quadrant state-quadrant">
+                  <p>State: {senator.state}</p>
+                </div>
+                <div className="senator-quadrant alignment-quadrant">
+                  <p>Alignment: <span>{senator.score.toFixed(2)}%</span></p>
+                  <canvas
+                    className="alignment-circle"
+                    width="100"
+                    height="100"
+                    ref={(canvas) => {
+                      if (canvas) {
+                        const ctx = canvas.getContext('2d');
+                        drawAlignmentCircle(ctx, senator.score);
+                      }
+                    }}
+                  ></canvas>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  export default App;
