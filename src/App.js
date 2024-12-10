@@ -38,7 +38,7 @@ const senatorImages = {
   'Martin Heinrich': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Heinrich_Official_Headshot_2019_%28cropped%29.jpg/190px-Heinrich_Official_Headshot_2019_%28cropped%29.jpg',
   'Ben Ray Luján': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Ben_Ray_Lujan%2C_117th_Congress_portrait_2_%28cropped%29.jpg/190px-Ben_Ray_Lujan%2C_117th_Congress_portrait_2_%28cropped%29.jpg',
   'John Hickenlooper': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/John_Hickenlooper%2C_official_portrait%2C_117th_Congress_%284x5_crop%29.jpeg/190px-John_Hickenlooper%2C_official_portrait%2C_117th_Congress_%284x5_crop%29.jpeg',
-  'Michael Bennet': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Senator_Mike_Bennett_%284x5_crop%29.jpg/190px-Senator_Mike_Bennett_%284x5_crop%29.jpg',
+  'Michael Bennett': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Senator_Mike_Bennett_%284x5_crop%29.jpg/190px-Senator_Mike_Bennett_%284x5_crop%29.jpg',
   'Catherine Cortez Masto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Catherine_Cortez_Masto_portrait_red_%28_4x5_crop%29.jpg/190px-Catherine_Cortez_Masto_portrait_red_%28_4x5_crop%29.jpg',
   'Jacky Rosen': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Senator_Jacky_Rosen_Official_Portrait_%282022%29_%28cropped%29.jpg/189px-Senator_Jacky_Rosen_Official_Portrait_%282022%29_%28cropped%29.jpg',
   'Mark Kelly': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mark_Kelly%2C_Official_Portrait_117th_%28cropped%29_2.jpg/190px-Mark_Kelly%2C_Official_Portrait_117th_%28cropped%29_2.jpg',
@@ -208,16 +208,20 @@ function App() {
       // Function to calculate color
       const getColorForScore = (score) => {
         if (score < 50) {
+          // Shades of red
           const redIntensity = Math.min(255, Math.floor((score / 50) * 255));
           return `rgb(${redIntensity}, 0, 0)`;
         } else if (score < 80) {
+          // Shades of yellow
           const yellowIntensity = Math.min(255, Math.floor(((score - 50) / 30) * 255));
-          return `rgb(255, ${yellowIntensity}, 0)`; 
+          return `rgb(255, ${yellowIntensity}, 0)`;
         } else {
-          const greenIntensity = Math.min(255, Math.floor(((score - 80) / 20) * 255));
-          return `rgb(0, ${greenIntensity}, 0)`; 
+          // Shades of green
+          const greenIntensity = Math.floor(((100 - score) / 20) * 155 + 100); // Darker green for higher alignment
+          return `rgb(0, ${greenIntensity}, 0)`;
         }
       };
+      
   
       ctx.clearRect(0, 0, 100, 100);
   
@@ -275,8 +279,8 @@ function App() {
             },
             {
               id: 'q5',
-              left: 'the United States should unconditionally support an end to conflict between Israel and Hamas under which Israel ceases the construction of settlements on Palestinian land and commit itself to a 2 state solution with protections for Palestinian sovereignty.',
-              right: 'the United States should reject any proposal for ceasefire until such time as Israel has achieved each of its war aims. the united states should support continued Israeli governance of itself and Palestine and should reject any attempt at a 2 state solution.',
+              left: 'The United States should unconditionally support an end to conflict between Israel and Hamas under which Israel ceases the construction of settlements on Palestinian land and commit itself to a 2 state solution with protections for Palestinian sovereignty.',
+              right: 'The United States should reject any proposal for ceasefire until such time as Israel has achieved each of its war aims. the united states should support continued Israeli governance of itself and Palestine and should reject any attempt at a 2 state solution.',
             },
           ].map((question) => (
             <div key={question.id} className="slider-wrapper">
