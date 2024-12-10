@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #A381BD;
-  font-family: 'Copperplate Gothic', 'Copperplate', serif;
+  font-family: 'Georgia', serif;
 }
 
 .titles-section {
@@ -33,7 +33,7 @@
 }
 
 .button-container button {
-  font-family: 'Copperplate Gothic', 'Copperplate', serif;
+  font-family: 'Georgia', serif;
   background-color: #A381BD;
   color: #FFFFFF;
   border: none;
@@ -132,7 +132,7 @@ button:hover {
   width: 45%;
   text-align: center;
   color: #FFFFFF;
-  
+  font-family: 'Georgia', serif;
 }
 
 input[type=range] {
@@ -219,5 +219,6 @@ input[type=range]::-webkit-slider-thumb {
   }
 }
 body {
+  font-family: 'Georgia', serif;
   background-color: #333333;
 }
